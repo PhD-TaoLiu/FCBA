@@ -1,0 +1,90 @@
+
+type: cifar
+test_batch_size: 64
+lr: 0.1
+poison_lr: 0.05
+momentum: 0.9
+decay: 0.0005
+batch_size: 64
+epochs: 500
+internal_epochs: 2
+internal_poison_epochs: 6
+internal_poison_clean_epochs: 0
+poisoning_per_batch: 2
+aggr_epoch_interval: 1
+# aggregation_methods Allowed values are: [ 'mean', 'geom_median','foolsgold']
+aggregation_methods: 'mean'
+geom_median_maxiter: 10
+fg_use_memory: true
+participants_namelist: [0,1,2,3,4,5,6,7,8,9] # not used when is_random_namelist == true
+no_models: 10
+number_of_total_participants: 100
+is_random_namelist: true
+is_random_adversary: false # fix adversary in their poison epochs
+is_poison: true
+baseline: false
+scale_weights_poison: 100
+eta: 0.1
+sampling_dirichlet: true
+dirichlet_alpha: 0.5
+poison_label_swap: 3
+# distributed attackers: (training img num : 526 - 527 - 496 - 546)
+total_list: [17, 33, 77, 11, 97, 82, 55, 2, 7, 39, 48, 58, 29, 47]
+adversary_list_1: [17, 33, 77, 11]   #C4,1
+adversary_list_2: [97, 82, 55, 2, 7, 39]   # C4,2
+adversary_list_3: [48, 58, 29, 47]   #C4,3
+# centralized attacker: (training img num: 529)
+#adversary_list: [45]
+
+centralized_test_trigger: True
+trigger_num: 4
+
+# gap 3 size 1*6 base (0, 0)
+0_poison_pattern: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5]]
+1_poison_pattern: [[0, 9], [0, 10], [0, 11], [0, 12], [0, 13], [0, 14]]
+2_poison_pattern: [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4], [4, 5]]
+3_poison_pattern: [[4, 9], [4, 10], [4, 11], [4, 12], [4, 13], [4, 14]]
+# single shot - distributed attack:
+0_poison_epochs: [314]
+1_poison_epochs: [316]
+2_poison_epochs: [318]
+3_poison_epochs: [320]
+4_poison_epochs: [322]
+5_poison_epochs: [324]
+6_poison_epochs: [326]
+7_poison_epochs: [328]
+8_poison_epochs: [330]
+9_poison_epochs: [332]
+10_poison_epochs: [334]
+11_poison_epochs: [336]
+12_poison_epochs: [338]
+13_poison_epochs: [340]
+
+environment_name: cifar # visdom environment for visualization
+
+save_model: true
+save_on_epochs: [200,300,500,600,1000]
+
+# pretrained clean model:
+resumed_model: true
+resumed_model_name: cifar_pretrain/model_last.pt.tar.epoch_200
+
+vis_train: false
+vis_train_batch_loss: false
+vis_trigger_split_test: true
+track_distance: false
+batch_track_distance: false
+log_interval: 2
+poison_momentum: 0.9
+poison_decay: 0.005
+poison_step_lr: true
+results_json: true
+alpha_loss: 1
+diff_privacy: false
+s_norm: 300
+sigma: 0.00001
+
+poison_epochs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58 ,59, 60,
+                61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
