@@ -1,9 +1,9 @@
 # FCBA
-This repo is implementation for the accepted paper "Beyond Traditional Threats: A Persistent Backdoor Attack in Federated Learning" ( AAAI 2024 )
+This repo is implementation for the accepted paper "Beyond Traditional Threats: A Persistent Backdoor Attack in Federated Learning" ( AAAI 2024 ).
 
 ![avatar](https://github.com/PhD-TaoLiu/FCBA/blob/main/FCBA-visio-show.jpg)
 
-Figure 1: Overview of full combination backdoor attack(FCBA) in FL. At round *t* + 1, the aggregator merges local data (both benign and adversarial) from *t* to update G<sub>*t*+1</sub>.During a backdoor attack, the attacker uses trigger partition *m* to create local trigger patterns and identifies *M* maliciousclients, each with a unique trigger pattern.
+Figure 1: Overview of full combination backdoor attack(FCBA) in FL. At round *t* + 1, the aggregator merges local data (both benign and adversarial) from *t* to update G<sub>*t*+1</sub>. During a backdoor attack, the attacker uses trigger partition *m* to create local trigger patterns and identifies *M* maliciousclients, each with a unique trigger pattern.
 
 ### Requirements
 
